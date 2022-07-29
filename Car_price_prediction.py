@@ -50,9 +50,24 @@ ypred = clf.predict(X_test)
 r2score = r2_score(Y_test,ypred)
 print("R2Score",r2score*100)
 
-import numpy as np
+input_data = tuple(map(float,input("Enter Data:").split(',')))
+in_data = pd.DataFrame(scale(input_data))
 
-r_data = (1.743470,-1.690772,-0.426521,-0.844782,-2.020417,-0.014566,0.074449,0.519071,-1.839377,-0.288349,0.174483,-0.262960,-0.646553,-0.546059)
+col_list = np.asarray(in_data)
+col_list
+
+reshape_data = col_list.reshape(1,-1)
+reshape_data
+
+prediction = clf.predict(reshape_data)
+print(prediction)
+
+
+
+
+
+
+'''r_data = (1.743470,-1.690772,-0.426521,-0.844782,-2.020417,-0.014566,0.074449,0.519071,-1.839377,-0.288349,0.174483,-0.262960,-0.646553,-0.546059)
 #input_data = tuple(map(float,input("Enter Data:").split(',')))
 
 input_arr = np.asarray(r_data)
@@ -65,4 +80,4 @@ reshape_data = input_arr.reshape(1,-1)
 
 prediction = clf.predict(reshape_data)
 
-print(prediction) 
+print(prediction) '''
